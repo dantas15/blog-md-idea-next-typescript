@@ -15,22 +15,19 @@ export default function Home() {
       <section className="flex flex-col md:flex-row w-full gap-4 mt-12">
         <Link
           className="flex-1 text-center bg-zinc-200 hover:bg-zinc-600 text-zinc-900 hover:text-zinc-50 transition-colors py-2 px-4 rounded"
-          as={`#`}
-          href="#"
+          href="/blog"
         >
-          posts
+          blog
         </Link>
         <Link
           className="flex-1 text-center bg-zinc-200 hover:bg-zinc-600 text-zinc-900 hover:text-zinc-50 transition-colors py-2 px-4 rounded"
-          as={`#`}
-          href="#"
+          href="/portfolio"
         >
           portfolio
         </Link>
         <Link
           className="flex-1 text-center bg-zinc-200 hover:bg-zinc-600 text-zinc-900 hover:text-zinc-50 transition-colors py-2 px-4 rounded"
-          as={`#`}
-          href="#"
+          href="/about"
         >
           about me
         </Link>
@@ -46,7 +43,10 @@ export default function Home() {
               size={22}
             />
           </Link>
-          <Link target="_blank" href="https://www.linkedin.com/in/gustavo-galote-3394661b7/">
+          <Link
+            target="_blank"
+            href="https://www.linkedin.com/in/gustavo-galote-3394661b7/"
+          >
             <LinkedinLogo
               className="text-zinc-400 hover:text-zinc-600 transition-colors hover:underline underline-offset-4"
               size={22}
