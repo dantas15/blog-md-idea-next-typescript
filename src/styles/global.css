@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base { 
- :focus {
-  outline: none;
-  box-shadow: 0 0 0 2px #a855f7;
- }
+@layer base {
+  :focus {
+    outline: none;
+    box-shadow: 0 0 0 0.5px #18181b;
+  }
 }
