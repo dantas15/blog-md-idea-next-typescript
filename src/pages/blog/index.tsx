@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { Layout } from '../../components/layout';
 import { PostPreview } from '../../components/post-preview';
 import { Post } from '../../interfaces/post';
+import { getAllPosts } from '../../lib/api';
 
 type Props = {
   allPosts: Post[];
@@ -38,67 +39,15 @@ function Blog({ allPosts }: Props) {
 }
 
 export const getStaticProps = () => {
+  const allPosts = getAllPosts([
+    'slug',
+    'title',
+    'date',
+    'coverImage',
+    'excerpt',
+  ]);
   return {
-    props: {
-      allPosts: [
-        {
-          slug: 'hello-world',
-          title: 'hello world',
-          date: '2020-11-05',
-          excerpt: 'lorem ipsum descrption',
-          content: 'lorem ipsum vjggffhjfhfjhjgghgffhfhjhjgfjfhhhfjhffhj',
-        },
-        {
-          slug: 'my-world',
-          title: 'my world',
-          date: '2020-11-05',
-          excerpt: 'lorem ipsum descrption',
-          content: 'lorem ipsum vjggffhjfhfjhjgghgffhfhjhjgfjfhhhfjhffhj',
-        },
-        {
-          slug: '2-world',
-          title: 'my world',
-          date: '2020-11-05',
-          excerpt: 'lorem ipsum descrption',
-          content: 'lorem ipsum vjggffhjfhfjhjgghgffhfhjhjgfjfhhhfjhffhj',
-        },
-        {
-          slug: '3-world',
-          title: 'my world',
-          date: '2020-11-05',
-          excerpt: 'lorem ipsum descrption',
-          content: 'lorem ipsum vjggffhjfhfjhjgghgffhfhjhjgfjfhhhfjhffhj',
-        },
-        {
-          slug: '4-world',
-          title: 'my world',
-          date: '2020-11-05',
-          excerpt: 'lorem ipsum descrption',
-          content: 'lorem ipsum vjggffhjfhfjhjgghgffhfhjhjgfjfhhhfjhffhj',
-        },
-        {
-          slug: '5-world',
-          title: 'my world',
-          date: '2020-11-05',
-          excerpt: 'lorem ipsum descrption',
-          content: 'lorem ipsum vjggffhjfhfjhjgghgffhfhjhjgfjfhhhfjhffhj',
-        },
-        {
-          slug: '6-world',
-          title: 'my world',
-          date: '2020-11-05',
-          excerpt: 'lorem ipsum descrption',
-          content: 'lorem ipsum vjggffhjfhfjhjgghgffhfhjhjgfjfhhhfjhffhj',
-        },
-        {
-          slug: '7-world',
-          title: 'my world',
-          date: '2020-11-05',
-          excerpt: 'lorem ipsum descrption',
-          content: 'lorem ipsum vjggffhjfhfjhjgghgffhfhjhjgfjfhhhfjhffhj',
-        },
-      ],
-    },
+    props: { allPosts },
   };
 };
 
