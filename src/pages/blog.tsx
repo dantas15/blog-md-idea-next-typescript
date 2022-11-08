@@ -1,8 +1,8 @@
 import Head from 'next/head';
-import { Layout } from '../../components/layout';
-import { PostPreview } from '../../components/post-preview';
-import { Post } from '../../interfaces/post';
-import { getAllPosts } from '../../lib/api';
+import { Layout } from '../components/layout';
+import { PostPreview } from '../components/post-preview';
+import { Post } from '../interfaces/post';
+import { getAllPosts } from '../lib/api';
 
 type Props = {
   allPosts: Post[];

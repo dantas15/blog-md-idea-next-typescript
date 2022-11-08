@@ -13,8 +13,8 @@ export function PostPreview({ slug, title, date, excerpt, coverImage }: Props) {
   return (
     <article key={slug} className="pb-2 border-b-2 last:border-b-0">
       <Link
-        as={`/blog/${slug}`}
-        href="/blog/[slug]"
+        as={`/${slug}`}
+        href="/[slug]"
         className="hover:underline"
       >
         <h3 className="text-2xl md:text-3xl mb-1 leading-snug">{title}</h3>
