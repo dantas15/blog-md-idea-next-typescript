@@ -1,14 +1,16 @@
-import Head from 'next/head';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Layout } from '../components/layout';
 import { GithubLogo, LinkedinLogo, TwitterLogo } from 'phosphor-react';
+import Head from 'next/head';
 
 export default function Home() {
   return (
     <Layout>
+      <Head>
+          <title>gus&apos;</title>
+        </Head>
       <section className="w-100 select-none">
-        hey, welcome to my website. I&apos;m Gustavo Galote, a CS student based
+        hey, welcome to my website. I&apos;m Gustavo Galote, a Computer Science student focused on web development based
         in Brazil. This is an attempt to show what I&apos;ve been learning while
         I improve my note-taking skills
       </section>
