@@ -9,8 +9,6 @@ type Props = {
 };
 
 export const PostHeader = ({ title, coverImage, date }: Props) => {
-console.log(coverImage)
-
   return (
     <>
       <PostTitle>{title}</PostTitle>

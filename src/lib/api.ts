@@ -4,13 +4,27 @@ import matter from 'gray-matter';
 
 const postsDirectory = join(process.cwd(), 'src', 'posts');
 
-export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
+const availableGroups = ['portfolio'] as const;
+export type AvailableGroups = typeof availableGroups[number];
+
+export function getPostSlugs(group?: AvailableGroups) {
+  return group
+    ? fs.readdirSync(join(postsDirectory, group))
+    : fs
+        .readdirSync(postsDirectory, { withFileTypes: true })
+        .filter((dirent) => dirent.isFile())
+        .map((dirent) => dirent.name);
 }
 
-export function getPostsBySlug(slug: string, fields: string[] = []) {
+export function getPostsBySlug(
+  slug: string,
+  fields: string[] = [],
+  group?: AvailableGroups,
+) {
   const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
+  const fullPath = !!group
+    ? join(postsDirectory, group, `${realSlug}.md`)
+    : join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
@@ -29,10 +43,10 @@ export function getPostsBySlug(slug: string, fields: string[] = []) {
   return items;
 }
 
-export function getAllPosts(fields: string[] = []) {
-  const slugs = getPostSlugs();
+export function getAllPosts(fields: string[] = [], group?: AvailableGroups) {
+  const slugs = getPostSlugs(group);
   const posts = slugs
-    .map((slug) => getPostsBySlug(slug, fields))
+    .map((slug) => getPostsBySlug(slug, fields, group))
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 }
