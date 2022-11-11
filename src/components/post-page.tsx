@@ -38,6 +38,7 @@ export function PostPage({ post, morePosts, group }: Props) {
                 title={post.title}
                 coverImage={post.coverImage}
                 date={post.date}
+                tags={post.tags}
               />
               <PostBody content={post.content} />
             </article>
