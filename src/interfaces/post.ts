@@ -5,4 +5,5 @@ export interface Post {
   coverImage?: string;
   excerpt: string;
   content: string;
+  tags?: string[];
 }
