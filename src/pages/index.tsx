@@ -31,7 +31,7 @@ export default function Home() {
           className="flex-1 text-center bg-zinc-200 hover:bg-zinc-600 text-zinc-900 hover:text-zinc-50 transition-colors py-2 px-4 rounded"
           href="/about"
         >
-          about me
+          more about me
         </Link>
       </section>
       <section className="mt-12 w-full">
